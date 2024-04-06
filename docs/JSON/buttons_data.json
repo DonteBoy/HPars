@@ -1,4 +1,5 @@
 [
-    {"image_path": "docs/IMG/HPars_ATF.png", "command": "function_1"},
-    {"image_path": "docs/IMG/HPars_Rule.png", "command": "function_2"}
+    {"image_path": "docs/IMG/HPars_ATF.png", "plugin": "ATF"},
+    {"image_path": "docs/IMG/HPars_Rule.png", "plugin": "Rule"},
+    {"image_path": "docs/IMG/HPars_Gelbooru.png", "plugin": "Gelbooru"}
 ]

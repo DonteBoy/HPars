@@ -1,4 +1,6 @@
 import json
+import subprocess
+import os
 from tkinter import *
 
 def create_buttons_from_json(json_file, root):
@@ -12,15 +14,14 @@ def create_buttons_from_json(json_file, root):
     
     for i, item in enumerate(data):
         photo = PhotoImage(file=item['image_path'])
-        command = globals().get(item['command'])  # Получаем функцию по имени
-        if command:
-            button = Button(root, image=photo, command=command)
+        plugin = item.get('plugin')
+        if plugin:
+            button = Button(root, image=photo, command=lambda plug=plugin: on_button_click(root, plug))
         else:
             button = Button(root, image=photo)
         button.image = photo
         button.config(width=max_width, height=max_height)
         
-        # Расположение кнопок в зависимости от количества
         if i % 3 == 0 and i != 0:
             row += 1
             column = 0
@@ -30,20 +31,19 @@ def create_buttons_from_json(json_file, root):
     root.geometry(f"{3 * max_width}x{(row + 1) * max_height}")
     root.resizable(False, False)
 
-# Пример функций
-def function_1():
-    print("Function 1 executed.")
-
-def function_2():
-    print("Function 2 executed.")
+def on_button_click(root, plugin):
+    script_path = os.path.join("docs", "Plugins", f"{plugin}.py")
+    try:
+        subprocess.run(["python", script_path])
+    except FileNotFoundError:
+        print(f"Error: Python script '{plugin}.py' not found.")
+    root.destroy()
 
 root = Tk()
 root.title("HPars")
 
-# Путь к вашему JSON файлу
 json_file_path = "docs/JSON/buttons_data.json"
 
-# Создание кнопок из JSON файла
 create_buttons_from_json(json_file_path, root)
 
 root.mainloop()
