@@ -1,0 +1,30 @@
+{
+    "headers": {
+        "user-agent":"Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0"
+    },
+    "ATF": {
+        "atf": "https://booru.allthefallen.moe",
+        "atf_user_id": "/users/",
+        "atf_user_name": "/posts?tags=ordfav%3A"
+    },
+    "DAN": {
+        "dan": "https://danbooru.donmai.us",
+        "dan_user_id": "/users/"
+    },
+    "RULE34VIDEO": {
+        "rule34video": "https://rule34video.com",
+        "rule34video_user_id": "/members/",
+        "rule34video_other": "/favourites/videos/"
+    },
+    "variables": {
+        "atf_id": "28304",
+        "content_png": "True",
+        "content_jpeg": "True",
+        "content_gif": "True",
+        "content_mp4": "True",
+        "content_name_random": "False",
+        "content_name_number": "True",
+        "content_name_tag": "False",
+        "save_to_json": "True"
+    }
+}
